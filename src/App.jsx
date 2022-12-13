@@ -7,7 +7,7 @@ function App() {
   const [search, setSearch] = useState('');
 
   const getMovies = async () => {
-    const url = `http://www.omdbapi.com/?s=${search}&apikey=5821cd85`
+    const url = `http://www.omdbapi.com/?s=${search}&apikey=${process.env.REACT_APP_API_ID}`
 
     const res = await fetch(url);
     const resJson = await res.json();
@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-300">
+      {/* {process.env.REACT_APP_API_ID} */}
       <div className="bg-blue-400 flex flex-col p-3 gap-3 lg:flex-row lg:justify-between lg:items-center lg:px-52 lg:py-3">
         <h1 className="text-xl lg:text-2xl font-medium ">Movie Search App</h1>
         <div className="flex gap-3">

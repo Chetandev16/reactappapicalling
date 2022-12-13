@@ -3,10 +3,10 @@ import React from 'react'
 const MoviesList = (props) => {
     console.log(props);
   return (
-    <div className='flex gap-1 overflow-y-auto'>
+    <div className='sm:flex lg:flex-row lg:gap-2'>
         {props.movies.map((movie,index)=>(
-            <div> 
-                <img src={movie.Poster} alt="" />
+            <div className=''> 
+                <img className='shadow-lg mt-2' src={movie.Poster} alt="" />
             </div>
         ))}
     </div>

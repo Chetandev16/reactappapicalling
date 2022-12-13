@@ -4,7 +4,7 @@ function App() {
 
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [search,setSearch] = useState('');
+  const [search, setSearch] = useState('');
 
   const getMovies = async () => {
     const url = `http://www.omdbapi.com/?s=${search}&apikey=5821cd85`
@@ -21,17 +21,24 @@ function App() {
     getMovies();
   }, [search])
 
+
   return (
-    <div className="flex gap-8 bg-gray-300 min-h-screen flex-col  items-center">
-      <div className="mt-10 flex gap-4 ">
-        <input value={searchTerm} onChange={(e)=>{
-          setSearchTerm(e.target.value)
-        }} className="p-2 shadow-md" type="text" placeholder="Enter Movie To Search!" />
-        <button onClick={() => {
-          setSearch(searchTerm)
-        }} className="p-3 bg-blue-600 hover:bg-blue-800 text-white rounded-lg shadow-md">Search</button>
+    <div className="min-h-screen bg-gray-300">
+      <div className="bg-blue-400 flex flex-col p-3 gap-3 lg:flex-row lg:justify-between lg:items-center lg:px-52 lg:py-3">
+        <h1 className="text-xl lg:text-2xl font-medium ">Movie Search App</h1>
+        <div className="flex gap-3">
+          
+          <input value={searchTerm} onChange={(e) => {
+            setSearchTerm(e.target.value)
+          }} className="p-1 rounded-md shadow-md w-auto" type="text" placeholder="Enter Movie To Search!" />
+
+          <button onClick={() => {
+            setSearch(searchTerm)
+          }} className="p-3 bg-blue-600 hover:bg-blue-800 text-white rounded-lg shadow-md">Search</button>
+        
+        </div>
       </div>
-      <div className="mt-28">
+      <div className="flex flex-col justify-center items-center mt-28">
         <MoviesList movies={movies} />
       </div>
     </div>

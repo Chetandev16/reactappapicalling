@@ -3,7 +3,7 @@ import React from 'react'
 const MoviesList = (props) => {
     console.log(props);
   return (
-    <div className='sm:flex lg:flex-row lg:gap-2'>
+    <div className='grid mr-5 grid-cols-1 lg:grid-cols-4  lg:gap-6 lg:mr-0'>
         {props.movies.map((movie,index)=>(
             <div className=''> 
                 <img className='shadow-lg mt-2' src={movie.Poster} alt="" />
